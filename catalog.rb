@@ -4,7 +4,9 @@ class Catalog
   end
 
   def add(entry)
-    #raise "IllegalArgumentException" if @entries.select { |e| e.first == entry.first }
+    unless @entries.select { |e| e[0] == entry[0] }.empty?
+      raise IllegalArgumentException, "Entry for \"#{entry[0]}\" already exists."
+    end
     @entries << entry
   end
 
@@ -18,4 +20,7 @@ class Catalog
     end
     nil
   end
+end
+
+class IllegalArgumentException < StandardError
 end

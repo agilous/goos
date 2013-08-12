@@ -6,4 +6,8 @@ class Entry
   def include?(string)
     @entry.include? string
   end
+
+  def [](index)
+    @entry[index]
+  end
 end

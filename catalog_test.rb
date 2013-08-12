@@ -18,8 +18,6 @@ class CatalogTest < Minitest::Test
  end
 
   def test_cannot_add_two_entries_with_same_name
-    skip "I don't understand custom exceptions in Ruby."
-    @catalog.add(Entry.new("fish", "peas"))
-    assert_raises "IllegalArgumentException"
+    assert_raises(IllegalArgumentException) { @catalog.add(Entry.new("fish", "peas")) }
   end
 end
